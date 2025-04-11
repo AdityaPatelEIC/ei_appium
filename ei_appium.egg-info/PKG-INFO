@@ -1,7 +1,0 @@
-Metadata-Version: 2.1
-Name: ei-appium
-Version: 0.1.0
-Summary: A library for controlling settings and mobile application automation on Android devices using Appium.
-Author: Aditya Patel
-Author-email: aditya.patel@einfochips.com
-License: MIT
