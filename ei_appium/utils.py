@@ -5,6 +5,7 @@ from .wifi import *
 
 def open_quick_settings(driver):
     driver.open_notifications()
+    time.sleep(1)
     device_size = driver.get_window_size()
     height = device_size['height']
     width = device_size['width']

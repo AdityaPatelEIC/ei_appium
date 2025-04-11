@@ -44,7 +44,7 @@ class WiFi:
         except NoSuchElementException as e:
             self.open_wifi_setting(device)
         wifi_on_off_btn = device.find_element(By.ID, 'android:id/switch_widget')
-        if not wifi_on_off_btn.get_attribute('checked'):
+        if wifi_on_off_btn.get_attribute('checked') == 'false':
             wifi_on_off_btn.click()
 
     def turn_on_wifi_on_devices(self, *args):
@@ -61,7 +61,7 @@ class WiFi:
         except NoSuchElementException as e:
             self.open_wifi_setting(device)
         wifi_on_off_btn = device.find_element(By.ID, 'android:id/switch_widget')
-        if wifi_on_off_btn.get_attribute('checked'):
+        if wifi_on_off_btn.get_attribute('checked') == 'true':
             wifi_on_off_btn.click()
 
     def turn_off_wifi_on_devices(self, *args):

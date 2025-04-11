@@ -67,25 +67,25 @@ class AppiumController:
     # def is_wifi_connected_to_all_devices(self, devices, wifi_name):
     #     return self.wifi.is_wifi_connected_to_all_devices(devices, wifi_name=wifi_name)
     #
-    # """ALL THE METHODS RELATED TO OPERATION WITH THE BLUETOOTH"""
-    # def turn_on_bluetooth(self, device):
-    #     self.ble.turn_on_bluetooth(device)
-    #
-    # def turn_on_bluetooth_on_devices(self, *args):
-    #     self.ble.turn_on_bluetooth_on_devices(*args)
-    #
-    # def turn_on_bluetooth_on_all_devices(self, devices):
-    #     self.ble.turn_on_bluetooth_on_all_devices(devices)
-    #
-    # def turn_off_bluetooth(self, device):
-    #     self.ble.turn_off_bluetooth(device)
-    #
-    # def turn_off_bluetooth_on_devices(self, *args):
-    #     self.ble.turn_off_bluetooth_on_devices(*args)
-    #
-    # def turn_off_bluetooth_on_all_devices(self, devices):
-    #     self.ble.turn_off_bluetooth_on_all_devices(devices)
-    #
+    """ALL THE METHODS RELATED TO OPERATION WITH THE BLUETOOTH"""
+    def turn_on_bluetooth(self, device):
+        self.ble.turn_on_bluetooth(device)
+
+    def turn_on_bluetooth_on_devices(self, *args):
+        self.ble.turn_on_bluetooth_on_devices(*args)
+
+    def turn_on_bluetooth_on_all_devices(self, devices):
+        self.ble.turn_on_bluetooth_on_all_devices(devices)
+
+    def turn_off_bluetooth(self, device):
+        self.ble.turn_off_bluetooth(device)
+
+    def turn_off_bluetooth_on_devices(self, *args):
+        self.ble.turn_off_bluetooth_on_devices(*args)
+
+    def turn_off_bluetooth_on_all_devices(self, devices):
+        self.ble.turn_off_bluetooth_on_all_devices(devices)
+
     # def get_bluetooth_scan_result(self, device):
     #     self.ble.get_bluetooth_scan_result(device)
     #
