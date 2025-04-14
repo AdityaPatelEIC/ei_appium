@@ -12,6 +12,7 @@ class AppiumController:
         self.ble = Bluetooth()
 
     """ALL THE METHODS RELATED TO OPERATION WITH THE DEVICES"""
+
     def get_device_object(self, device_id):
         return get_device_object(device_id)
 
@@ -22,6 +23,7 @@ class AppiumController:
         return is_device_emulator(device)
 
     """ALL THE METHODS RELATED TO OPERATION WITH THE Wi-Fi"""
+
     def turn_on_wifi(self, device):
         self.wifi.turn_on_wifi(device)
 
@@ -68,6 +70,7 @@ class AppiumController:
     #     return self.wifi.is_wifi_connected_to_all_devices(devices, wifi_name=wifi_name)
     #
     """ALL THE METHODS RELATED TO OPERATION WITH THE BLUETOOTH"""
+
     def turn_on_bluetooth(self, device):
         self.ble.turn_on_bluetooth(device)
 
@@ -86,17 +89,17 @@ class AppiumController:
     def turn_off_bluetooth_on_all_devices(self, devices):
         self.ble.turn_off_bluetooth_on_all_devices(devices)
 
-    # def get_bluetooth_scan_result(self, device):
-    #     self.ble.get_bluetooth_scan_result(device)
-    #
-    # def get_bluetooth_scan_result_on_devices(self, *args):
-    #     self.ble.get_bluetooth_scan_result_on_devices(*args)
-    #
-    # def get_bluetooth_scan_result_on_all_devices(self, devices):
-    #     self.ble.get_bluetooth_scan_result_on_all_devices(devices)
-    #
+    def get_bluetooth_scan_result(self, device):
+        return self.ble.get_bluetooth_scan_result(device)
+
+    def get_bluetooth_scan_result_on_devices(self, *args):
+        return self.ble.get_bluetooth_scan_result_on_devices(*args)
+
+    def get_bluetooth_scan_result_on_all_devices(self, devices):
+        return self.ble.get_bluetooth_scan_result_on_all_devices(devices)
 
     """ALL THE METHODS RELATED TO QUICK SETTINGS"""
+
     def switch_aeroplane_mode(self, device, selector, mode):
         self.qs.switch_aeroplane_mode(device, selector, mode)
 
@@ -104,4 +107,3 @@ class AppiumController:
 
     def open_application(self, device, app_package, app_activity, no_reset=True):
         open_application(device, app_package, app_activity, no_reset)
-

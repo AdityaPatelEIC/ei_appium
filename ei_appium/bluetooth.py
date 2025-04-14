@@ -13,7 +13,7 @@ class Bluetooth:
         actions.click_and_hold(wifi_btn).perform()
         time.sleep(1)
         actions.release(wifi_btn)
-        time.sleep(4)
+        time.sleep(2)
 
     def turn_on_bluetooth(self, device=None):
         try:
@@ -48,6 +48,34 @@ class Bluetooth:
     def turn_off_bluetooth_on_all_devices(self, devices):
         for device in devices:
             self.turn_off_bluetooth(device)
+
+    def get_bluetooth_scan_result(self, device):
+        try:
+            device.find_element(By.XPATH,'//android.widget.TextView[@resource-id="android:id/title" and @text="Pair new device"]')
+        except NoSuchElementException:
+            self.open_bluetooth_setting(device)
+        pair_new_button = device.find_element(AppiumBy.ANDROID_UIAUTOMATOR, 'text("Pair new device")')
+        pair_new_button.click()
+        print("Waiting 10 seconds to load the bluetooth devices...")
+        time.sleep(10)
+        recycler_containing_devices = device.find_element(By.ID, 'com.android.settings:id/recycler_view')
+        wifi_names = recycler_containing_devices.find_elements(By.CLASS_NAME, "android.widget.TextView")
+        bluetooth_results = [wifi_name.text for wifi_name in wifi_names[3:]]
+        return bluetooth_results
+
+    def get_bluetooth_scan_result_on_devices(self, *args):
+        scan_result = dict()
+        for device in args:
+            udid = device.capabilities.get("udid")
+            scan_result[udid] = self.get_bluetooth_scan_result(device)
+        return scan_result
+
+    def get_bluetooth_scan_result_on_all_devices(self, devices):
+        scan_result = dict()
+        for device in devices:
+            udid = device.capabilities.get("udid")
+            scan_result[udid] = self.get_bluetooth_scan_result(device)
+        return scan_result
 
     # def connect_to_wifi(self, device, wifi_name=None, wifi_password=None):
     #     if is_device_emulator(device):
