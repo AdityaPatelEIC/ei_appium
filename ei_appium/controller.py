@@ -171,6 +171,7 @@ def is_device_emulator(driver):
 
 
 def close_device_connections():
+    # Yet to be implemented still in experiment stage
     """Closes all Appium sessions."""
     global _APPIUM_DRIVERS
     for driver_dict in _APPIUM_DRIVERS:
