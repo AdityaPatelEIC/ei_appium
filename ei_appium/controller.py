@@ -162,6 +162,7 @@ def get_device_object(udid):
 
 
 def is_device_emulator(driver):
+    # More changes are required as iOS is now implemented as well
     """Checks if the connected Android device is an emulator."""
     if not driver:
         print("No driver provided.")
@@ -170,6 +171,7 @@ def is_device_emulator(driver):
 
 
 def close_device_connections():
+    # Yet to be implemented still in experiment stage
     """Closes all Appium sessions."""
     global _APPIUM_DRIVERS
     for driver_dict in _APPIUM_DRIVERS:
@@ -192,12 +194,3 @@ def stop_appium_server():
     _APPIUM_SERVER_PROCESS_IDS.clear()
 
 
-# Example Usage
-if __name__ == "__main__":
-    # Choose your platform: "android" or "ios"
-    setup_devices(platform="android")
-
-    time.sleep(10)  # Let the sessions run for a bit
-
-    close_device_connections()
-    stop_appium_server()
