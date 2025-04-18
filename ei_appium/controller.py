@@ -81,7 +81,7 @@ def get_connected_ios_devices():
     # Get real devices
     result = subprocess.run(['idevice_id', '-l'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     if result.returncode == 0:
-        devices += result.stdout.strip().split('\n')
+        devices += [line for line in result.stdout.strip().split('\n') if line.strip()]
 
     return devices
 
@@ -162,6 +162,7 @@ def get_device_object(udid):
 
 
 def is_device_emulator(driver):
+    # More changes are required as iOS is now implemented as well
     """Checks if the connected Android device is an emulator."""
     if not driver:
         print("No driver provided.")
@@ -180,6 +181,7 @@ def close_device_connections():
 
 def stop_appium_server():
     """Stops all Appium server processes."""
+    # Yet to be implemented still in experiment stage
     for pid in _APPIUM_SERVER_PROCESS_IDS:
         if os.name == 'nt':
             subprocess.run(['taskkill', '/F', '/PID', str(pid)])
@@ -192,12 +194,3 @@ def stop_appium_server():
     _APPIUM_SERVER_PROCESS_IDS.clear()
 
 
-# Example Usage
-if __name__ == "__main__":
-    # Choose your platform: "android" or "ios"
-    setup_devices(platform="android")
-
-    time.sleep(10)  # Let the sessions run for a bit
-
-    close_device_connections()
-    stop_appium_server()
