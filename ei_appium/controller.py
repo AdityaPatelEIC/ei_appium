@@ -178,7 +178,7 @@ def is_device_emulator(driver):
     if "emulator" in udid_value or len(udid_value) == 36:
         return True
     else:
-        False
+        return False
 
 
 def close_device_connections():
