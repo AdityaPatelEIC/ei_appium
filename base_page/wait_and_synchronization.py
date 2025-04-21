@@ -41,7 +41,7 @@ def wait_for_element(driver, locator_type, locator_value, timeout=15):
 
     try:
         # Using EC.presence_of_element_located with the locator
-        element = wait.until(EC.presence_of_element_located((locator, locator_value)))
+        element = wait.until(lambda x: x.find_element(locator_type, locator_value))
         log.info(f"Found element by {locator_type}: {locator_value}")
     except NoSuchElementException:
         log.error(f"Element not found with {locator_type} = {locator_value}")

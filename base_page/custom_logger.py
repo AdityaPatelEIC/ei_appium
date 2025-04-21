@@ -10,7 +10,7 @@ def customLogger():
 
     # Create logger
     logger = logging.getLogger(log_name)
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(logging.INFO)
 
     # Avoid adding multiple handlers
     if not logger.handlers:
