@@ -1,6 +1,7 @@
 import logging
 import inspect
 import os
+from colorlog import ColoredFormatter
 
 
 def customLogger():
@@ -18,10 +19,17 @@ def customLogger():
         console_handler = logging.StreamHandler()
         console_handler.setLevel(logging.DEBUG)
 
-        # Log format
-        formatter = logging.Formatter(
-            '%(asctime)s - %(levelname)s - %(message)s',
-            datefmt="%d/%m/%y %I:%M:%S %p %A"
+        # Colored formatter
+        formatter = ColoredFormatter(
+            fmt="%(log_color)s%(asctime)s - %(levelname)s - %(message)s",
+            datefmt="%d/%m/%y %I:%M:%S %p %A",
+            log_colors={
+                'DEBUG': 'white',
+                'INFO': 'white',
+                'WARNING': 'yellow',
+                'ERROR': 'red',
+                'CRITICAL': 'bold_red',
+            }
         )
         console_handler.setFormatter(formatter)
 

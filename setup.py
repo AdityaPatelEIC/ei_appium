@@ -7,7 +7,8 @@ setup(
     packages=find_packages(),  # Automatically find all packages in the directory
     install_requires=[
         'appium-python-client',
-        'requests'
+        'requests',
+        'colorlog'
     ],
     description="A library for controlling settings and mobile application automation on Android devices using Appium.",
     author="Aditya Patel",
