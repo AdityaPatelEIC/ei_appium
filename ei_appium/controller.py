@@ -51,7 +51,7 @@ def start_appium_server(port=4723):
             command = f'tell application "Terminal" to do script "{appium_command}"'
             process = subprocess.Popen(['osascript', '-e', command])
         else:
-            # Linux
+            # Linux one is still be tested on the linux system. we will look more into it later on
             command = f'gnome-terminal -- bash -c "appium -p {port}; exec bash"'
             process = subprocess.Popen(command, shell=True)
         _APPIUM_SERVER_PROCESS_IDS.append(process.pid)
