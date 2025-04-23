@@ -2,3 +2,4 @@ venv/
 build/
 dist/
 ei_appium.egg-info/
+.idea/ei_appium.iml
