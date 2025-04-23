@@ -118,3 +118,12 @@ class AppiumController:
 
     def get_elements(self, device, locator_type, locator_value, timeout=15):
         return get_elements(device, locator_type, locator_value, timeout)
+
+    def click_element(self, device, locator_type, locator_value, timeout=15):
+        click_element(device, locator_type, locator_value, timeout)
+
+    def long_click_element(self, device, locator_type, locator_value, timeout=15):
+        long_click_element(device, locator_type, locator_value, timeout)
+
+    def click_and_hold_element(self, device, locator_type, locator_value, hold_time=2, timeout=15):
+        click_and_hold_element(device, locator_type ,locator_value, hold_time, timeout)
