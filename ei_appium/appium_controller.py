@@ -3,6 +3,7 @@ from .quick_settings import *
 from .controller import *
 from .bluetooth import *
 from .utils import *
+from base_page.element_interactions import *
 
 
 class AppiumController:
@@ -12,6 +13,9 @@ class AppiumController:
         self.ble = Bluetooth()
 
     """ALL THE METHODS RELATED TO OPERATION WITH THE DEVICES"""
+
+    def setup_devices(self, platform_name):
+        setup_devices(platform_name)
 
     def get_device_object(self, device_id):
         return get_device_object(device_id)
@@ -107,3 +111,10 @@ class AppiumController:
 
     def open_application(self, device, app_package, app_activity, no_reset=True):
         open_application(device, app_package, app_activity, no_reset)
+
+#     Testing purposes
+    def get_element(self, device, locator_type, locator_value, timeout=15):
+        return get_element(device, locator_type, locator_value, timeout)
+
+    def get_elements(self, device, locator_type, locator_value, timeout=15):
+        return get_elements(device, locator_type, locator_value, timeout)
