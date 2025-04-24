@@ -3,7 +3,7 @@ from .quick_settings import *
 from .controller import *
 from .bluetooth import *
 from .utils import *
-from base_page.element_interactions import ElementInteractions
+from base_page.appium_element_interactions import AppiumElementInteractions
 
 
 class AppiumController:
@@ -11,7 +11,7 @@ class AppiumController:
         self.wifi = WiFi()
         self.qs = QuickSettings()
         self.ble = Bluetooth()
-        self.ele_interaction = ElementInteractions()
+        self.ele_interaction = AppiumElementInteractions()
 
     """ALL THE METHODS RELATED TO OPERATION WITH THE DEVICES"""
 

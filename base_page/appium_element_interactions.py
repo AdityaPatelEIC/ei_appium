@@ -2,16 +2,19 @@ import time
 
 from selenium.webdriver import ActionChains
 
-from .wait_and_synchronization import *
-from .custom_logger import customLogger
+from .appium_wait_and_synchronization import *
+from .appium_custom_logger import customLogger
 
 
-class ElementInteractions:
+class AppiumElementInteractions:
+    def __init__(self):
+        self.wt_syn = AppiumWaitAndSynchronization()
+
     def get_element(self, device, locator_type, locator_value, timeout):
         log = customLogger()
         element = None
         try:
-            element = wait_for_element(device, locator_type, locator_value, timeout)
+            element = self.wt_syn.wait_for_element(device, locator_type, locator_value, timeout)
             if element is None:
                 return element
             log.info(f"Element found with locator type {locator_type} and locator value {locator_value}")
@@ -23,7 +26,7 @@ class ElementInteractions:
         log = customLogger()
         element = None
         try:
-            element = wait_for_elements(device, locator_type, locator_value, timeout)
+            element = self.wt_syn.wait_for_elements(device, locator_type, locator_value, timeout)
             if element is None:
                 return element
             log.info(f"Elements found with locator type {locator_type} and locator value {locator_value}")
@@ -34,7 +37,7 @@ class ElementInteractions:
     def click_element(self, device, locator_type, locator_value, timeout):
         log = customLogger()
         try:
-            element = wait_for_element(device, locator_type, locator_value, timeout)
+            element = self.wt_syn.wait_for_element(device, locator_type, locator_value, timeout)
             if element:
                 element.click()
                 log.info(f"Clicked on element with locator type {locator_type} and locator value {locator_value}")
@@ -45,7 +48,7 @@ class ElementInteractions:
         log = customLogger()
         actions = ActionChains(device)
         try:
-            element = wait_for_element(device, locator_type, locator_value, timeout)
+            element = self.wt_syn.wait_for_element(device, locator_type, locator_value, timeout)
             if element:
                 actions.click_and_hold(element).perform()
                 time.sleep(0.5)
@@ -58,11 +61,12 @@ class ElementInteractions:
         log = customLogger()
         actions = ActionChains(device)
         try:
-            element = wait_for_element(device, locator_type, locator_value, timeout)
+            element = self.wt_syn.wait_for_element(device, locator_type, locator_value, timeout)
             if element:
                 actions.click_and_hold(element).perform()
                 time.sleep(hold_time)
                 actions.release(element).perform()
-                log.info(f"Clicked on element with locator type {locator_type} and locator value {locator_value} for {hold_time} seconds")
+                log.info(
+                    f"Clicked on element with locator type {locator_type} and locator value {locator_value} for {hold_time} seconds")
         except Exception as e:
             log.error(f"Element not found with {locator_type} = {locator_value}. :Error-{e}")
