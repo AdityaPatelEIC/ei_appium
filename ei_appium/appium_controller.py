@@ -3,7 +3,7 @@ from .quick_settings import *
 from .controller import *
 from .bluetooth import *
 from .utils import *
-from base_page.element_interactions import *
+from base_page.element_interactions import ElementInteractions
 
 
 class AppiumController:
@@ -11,6 +11,7 @@ class AppiumController:
         self.wifi = WiFi()
         self.qs = QuickSettings()
         self.ble = Bluetooth()
+        self.ele_interaction = ElementInteractions()
 
     """ALL THE METHODS RELATED TO OPERATION WITH THE DEVICES"""
 
@@ -114,16 +115,16 @@ class AppiumController:
 
 #     Testing purposes
     def get_element(self, device, locator_type, locator_value, timeout=15):
-        return get_element(device, locator_type, locator_value, timeout)
+        return self.ele_interaction.get_element(device, locator_type, locator_value, timeout)
 
     def get_elements(self, device, locator_type, locator_value, timeout=15):
-        return get_elements(device, locator_type, locator_value, timeout)
+        return self.ele_interaction.get_elements(device, locator_type, locator_value, timeout)
 
     def click_element(self, device, locator_type, locator_value, timeout=15):
-        click_element(device, locator_type, locator_value, timeout)
+        self.ele_interaction.click_element(device, locator_type, locator_value, timeout)
 
     def long_click_element(self, device, locator_type, locator_value, timeout=15):
-        long_click_element(device, locator_type, locator_value, timeout)
+        self.ele_interaction.long_click_element(device, locator_type, locator_value, timeout)
 
     def click_and_hold_element(self, device, locator_type, locator_value, hold_time=2, timeout=15):
-        click_and_hold_element(device, locator_type ,locator_value, hold_time, timeout)
+        self.ele_interaction.click_and_hold_element(device, locator_type ,locator_value, hold_time, timeout)
