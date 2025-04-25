@@ -3,10 +3,10 @@ from .quick_settings import *
 from .controller import *
 from .bluetooth import *
 from .utils import *
-from controllers.wifi_controller import WiFiController
-from controllers.bluetooth_controller import BluetoothController
-from controllers.quick_settings_controller import QuickSettingsController
-from controllers.element_interactions_controller import ElementInteractionsController
+from controllers.appium_wifi_controller import WiFiController
+from controllers.appium_bluetooth_controller import BluetoothController
+from controllers.appium_quick_settings_controller import QuickSettingsController
+from controllers.appium_element_interactions_controller import ElementInteractionsController
 
 
 class AppiumController(WiFiController, BluetoothController, QuickSettingsController, ElementInteractionsController):
