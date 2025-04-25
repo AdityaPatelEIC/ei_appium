@@ -1,12 +1,9 @@
-from .wifi import *
-from .quick_settings import *
 from .controller import *
-from .bluetooth import *
 from .utils import *
-from controllers.appium_wifi_controller import WiFiController
-from controllers.appium_bluetooth_controller import BluetoothController
-from controllers.appium_quick_settings_controller import QuickSettingsController
-from controllers.appium_element_interactions_controller import ElementInteractionsController
+from appium_controllers.appium_wifi_controller import WiFiController
+from appium_controllers.appium_bluetooth_controller import BluetoothController
+from appium_controllers.appium_quick_settings_controller import QuickSettingsController
+from appium_controllers.appium_element_interactions_controller import ElementInteractionsController
 
 
 class AppiumController(WiFiController, BluetoothController, QuickSettingsController, ElementInteractionsController):

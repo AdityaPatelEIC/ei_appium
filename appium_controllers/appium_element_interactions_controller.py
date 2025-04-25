@@ -1,4 +1,4 @@
-from base_page.appium_element_interactions import AppiumElementInteractions
+from appium_base_page.appium_element_interactions import AppiumElementInteractions
 
 
 class ElementInteractionsController:
