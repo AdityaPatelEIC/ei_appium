@@ -7,7 +7,7 @@ class ElementStateController:
         self.ele_state = AppiumElementState()
 
     def get_element_attribute_state(self, device, locator_type, locator_value, attribute_name, timeout=15):
-        self.ele_state.get_element_attribute_state(device, locator_type, locator_value, attribute_name, timeout)
+        return self.ele_state.get_element_attribute_state(device, locator_type, locator_value, attribute_name, timeout)
 
     def get_element_attribute_state_on_devices(self, *args, locator_type, locator_value, attribute_name, timeout=15):
         log = customLogger()
