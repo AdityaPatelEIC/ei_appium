@@ -105,6 +105,8 @@ class AppiumElementInteractions:
                     element.click()
                 else:
                     log.info(f"Successfully clicked on element {n} times with locator type {locator_type} and locator value {locator_value}")
+            else:
+                log.error(f"Failed to click {n} times on element with locator type {locator_type} and locator value {locator_value}")
 
         except Exception as e:
             log.error(f"Element not found with {locator_type} = {locator_value}. :Error-{e}")

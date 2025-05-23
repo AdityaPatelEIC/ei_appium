@@ -4,14 +4,16 @@ from appium_controllers.appium_wifi_controller import WiFiController
 from appium_controllers.appium_bluetooth_controller import BluetoothController
 from appium_controllers.appium_quick_settings_controller import QuickSettingsController
 from appium_controllers.appium_element_interactions_controller import ElementInteractionsController
+from appium_controllers.appium_element_state_controller import ElementStateController
 
 
-class AppiumController(WiFiController, BluetoothController, QuickSettingsController, ElementInteractionsController):
+class AppiumController(WiFiController, BluetoothController, QuickSettingsController, ElementInteractionsController, ElementStateController):
     def __init__(self):
         WiFiController.__init__(self)
         BluetoothController.__init__(self)
         QuickSettingsController.__init__(self)
         ElementInteractionsController.__init__(self)
+        ElementStateController.__init__(self)
 
     """ALL THE METHODS RELATED TO OPERATION WITH THE DEVICES"""
 
