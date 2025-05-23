@@ -45,6 +45,17 @@ class ElementInteractionsController:
         self.ele_interaction.click_and_hold_element_on_all_devices(devices, locator_type, locator_value, hold_time,
                                                                    timeout)
 
+    def click_element_n_times(self, device, locator_type, locator_value, n=2, timeout=15):
+        self.ele_interaction.click_element_n_times(device, locator_type, locator_value, n, timeout)
+
+    def click_element_n_times_on_devices(self, *args, locator_type, locator_value, n=2, timeout=15):
+        self.ele_interaction.click_element_n_times_on_devices(*args, locator_type=locator_type,
+                                                              locator_value=locator_value, n=n,
+                                                              timeout=timeout)
+
+    def click_element_n_times_on_all_devices(self, devices, locator_type, locator_value, n=2, timeout=15):
+        self.ele_interaction.click_element_n_times_on_all_devices(devices, locator_type, locator_value, n, timeout)
+
     def set_element_text(self, device, locator_type, locator_value, text, timeout=15):
         self.ele_interaction.set_element_text(device, locator_type, locator_value, text, timeout)
 
